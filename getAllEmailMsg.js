@@ -1,6 +1,6 @@
 const axios = require('axios');
 
-async function fetchEmails(login, domain) {
+async function getAllEmailMsg(login, domain) {
   const apiUrl = 'https://www.1secmail.com/api/v1/?action=getMessages&login=${login}&domain=${domain}';
 
   try {
@@ -12,4 +12,4 @@ async function fetchEmails(login, domain) {
   }
 }
 
-module.exports = fetchEmails;
+module.exports = getAllEmailMsg;
