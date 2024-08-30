@@ -12,9 +12,9 @@ app.get('/random-email', async (req, res) => {
     res.status(500).json({ message: 'Error generating random email' });
   }
 });
-app.get('/all-emails', async (req, res) => {
+app.post('/all-emails', async (req, res) => {
   try {
-    const { login, domain } = req.query; // or req.body, depending on how you want to pass the parameters
+    const { login, domain } = req.body;
     const emailData = await getAllEmailMsg(login, domain);
     res.json(emailData);
   } catch (error) {
