@@ -1,7 +1,7 @@
 const axios = require('axios');
 
 async function fetchEmails(login, domain) {
-  const apiUrl = https://www.1secmail.com/api/v1/?action=getMessages&login=${login}&domain=${domain};
+  const apiUrl = 'https://www.1secmail.com/api/v1/?action=getMessages&login=${login}&domain=${domain}';
 
   try {
     const response = await axios.get(apiUrl);
