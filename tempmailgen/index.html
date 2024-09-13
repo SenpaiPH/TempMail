@@ -1,48 +1,27 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Input Layout with Button</title>
+	<title>Generate Random Email</title>
 	<style>
 		body {
-			font-family: Arial, sans-serif;
-			background-color: #f0f0f0;
-		}
-		form {
-			width: 50%;
-			margin: 40px auto;
-			padding: 20px;
-			background-color: #fff;
-			border: 1px solid #ddd;
-			box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-		}
-		label {
-			display: block;
-			margin-bottom: 10px;
-		}
-		input[type="text"] {
-			width: 100%;
-			padding: 10px;
-			margin-bottom: 20px;
-			border: 1px solid #ccc;
-		}
-		button[type="submit"] {
-			background-color: #4CAF50;
-			color: #fff;
-			padding: 10px 20px;
-			border: none;
-			border-radius: 5px;
-			cursor: pointer;
-		}
-		button[type="submit"]:hover {
-			background-color: #3e8e41;
+ font-family: Arial, sans-serif;
 		}
 	</style>
 </head>
 <body>
-	<form>
-		<label for="inputField">Enter some text:</label>
-		<input type="text" id="inputField" name="inputField"><br><br>
-		<button type="submit">Submit</button>
-	</form>
+	<h1>Generate Random Email</h1>
+	<input type="text" id="inputField" value="" readonly>
+	<button onclick="generateMailbox()">Generate Mailbox</button>
+	
+	<script>
+		function generateMailbox() {
+			fetch('https://www.1secmail.com/api/v1/?action=genRandomMailbox&count=1')
+				.then(response => response.json())
+				.then(data => {
+					document.getElementById('inputField').value = data[0];
+				})
+				.catch(error => console.error('Error:', error));
+		}
+	</script>
 </body>
 </html>
