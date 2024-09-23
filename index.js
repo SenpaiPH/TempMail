@@ -10,8 +10,8 @@ app.use(express.static('public'));
 app.use(express.json());
 
 // Endpoint to send SMS
-app.post('/send-sms', async (req, res) => {
-  const { phoneNumber, message } = req.body;
+app.get('/send-sms', async (req, res) => {
+  const { phoneNumber, message } = req.query;
   const apiKey = 'kHfQQlnqljrExj7KYsfTISrxcQ6QdbJbKSp5JuF6HzRa4nrCctsAwNSzfYyKFDpL'; // Replace with your actual API key
   const url = 'https://textflow.me/api/send-sms';
 
